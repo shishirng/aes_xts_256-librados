@@ -1,6 +1,6 @@
 CC=gcc
 IDIR=./
-CFLAGS=-I$(IDIR)
+CFLAGS=-g -ggdb -O0 -I$(IDIR)
 OBJ = rados_aes.c aes_xts.c
 DEPS=aes_xts.h
 LIBS=-lrbd -lrados -lssl -lcrypto
