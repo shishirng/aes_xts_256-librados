@@ -76,7 +76,7 @@ int main()
 
 	memset(buf, 0, 65536);
 	memset(out_buf, 0, 65536);
-	ret = rbd_aio_read(rbd_image, 0, 65536, buf, read_comp);
+	ret = rbd_aio_read(rbd_image, 8192, 8192, buf, read_comp);
 	if (ret < 0) {
 		printf ("Failed to read aio completion\n");
 		return -1;
@@ -85,7 +85,7 @@ int main()
 
 	rbd_aio_wait_for_complete(read_comp);
 	rbd_aio_release(read_comp);
-	len = 65536;
+	len = 8192;
 	len = decrypt(buf, len, cipher_key, iv, out_buf);
 
 	fd = open("/tmp/decrypted_file_1", O_CREAT|O_RDWR);

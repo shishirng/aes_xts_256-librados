@@ -125,7 +125,7 @@ int main()
 
 	rbd_aio_wait_for_complete(read_comp);
 	rbd_aio_release(read_comp);
-
+	len=65536;
 	start_t = clock();
 	len = decrypt(buf, len, cipher_key, iv, out_buf);
 	end_t = clock();
